@@ -1,21 +1,51 @@
 # Customer Segmentation & RFM Analysis using K-Means
 
+> Unsupervised customer segmentation using RFM analysis and K-Means clustering to identify actionable behavioral cohorts.
+
 ## Business Problem
-E-commerce businesses frequently struggle with generic marketing campaigns that treat all customers the same. This project applies unsupervised machine learning to segment 4,000+ retail customers into actionable cohorts based on their transactional history.
+
+E-commerce businesses often treat customers too broadly in marketing campaigns. This project segments customers using transactional behavior so that different cohorts can be approached with different retention and growth strategies.
 
 ## Tech Stack
-* **Language:** Python
-* **Libraries:** Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn
-* **Techniques:** RFM Feature Engineering, Log-Transformation, StandardScaler, K-Means Clustering, Elbow Method
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Scikit-Learn**
+- **Matplotlib**
+- **Seaborn**
 
 ## Methodology
-1. **Data Cleaning:** Cleaned 500K+ transaction rows by eliminating missing customer IDs, cancelled orders, and invalid prices/quantities.
-2. **RFM Modeling:** Aggregated transactional data into Recency, Frequency, and Monetary metrics per unique customer.
-3. **Data Scaling:** Normalized skewed distributions via log transformation and standardized features using `StandardScaler`.
-4. **Clustering:** Ran the Elbow Method to evaluate optimal $k$ and clustered customers into 4 distinct behavioral segments using K-Means.
 
-## Business Insights & Strategy
-* **Champions:** High frequency, high spend, recent orders. Strategy: Exclusive VIP perks, early product access, loyalty rewards.
-* **Loyal Regulars:** Steady order frequency and moderate spend. Strategy: Cross-selling related categories and upselling premium items.
-* **At-Risk:** High spend historically, but high recency (have not purchased recently). Strategy: Personalized email win-back campaigns and special incentives.
-* **Dormant:** Single low-value orders from long ago. Strategy: Low-cost automated re-engagement surveys.
+### 1. Data Cleaning
+Cleaned 500K+ transaction rows by handling missing customer IDs, cancelled orders, and invalid price/quantity records.
+
+### 2. RFM Feature Engineering
+Built customer-level:
+
+- **Recency** — how recently a customer purchased
+- **Frequency** — how often a customer purchased
+- **Monetary** — how much a customer spent
+
+### 3. Feature Transformation
+Applied log transformation to reduce skew and standardized features using StandardScaler.
+
+### 4. Customer Clustering
+Used the Elbow Method to evaluate the clustering structure and applied K-Means to produce **four behavioral segments**.
+
+## Customer Segments
+
+| Segment | Behavioral profile | Example strategy |
+|---|---|---|
+| **Champions** | Recent, frequent, high-value customers | Loyalty rewards, VIP benefits, early access |
+| **Loyal Regulars** | Consistent purchase behavior and moderate spend | Cross-sell and upsell relevant products |
+| **At-Risk** | Historically valuable but inactive recently | Personalized win-back campaigns |
+| **Dormant** | Low-value or long-inactive customers | Low-cost re-engagement campaigns |
+
+## Analytical Workflow
+
+**Raw transactions → cleaning → RFM features → transformation → scaling → K-Means → customer segments → business strategy**
+
+## Business Value
+
+The project demonstrates how an analytical segmentation model can move beyond clustering output and translate customer behavior into practical marketing actions.
